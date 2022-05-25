@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/e2229bd305.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="agendamentos.css">
+        <link rel="stylesheet" href="../global/global.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <title>Agendamentos</title>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav-bar">
+                <ul class="nav-list">
+                    <div class="left-nav-items">
+                        <a href="#">
+                            <li class="nav-item">DASHBOARD - MAGNA</li>
+                        </a>
+                    </div>
+                    <div class="right-nav-items">
+                        <li class="nav-item">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                        <li class="nav-item">
+                            <span>
+                                <i class="fa-solid fa-user"></i>
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-container">
+            <div class="container_navigation">
+                <div class="navigation active">
+                    <ul>
+                        <li class="toggle">
+                            <i class="fa-solid fa-bars open"></i>
+                            <i class="fa-solid fa-xmark close"></i>
+                        </li>
+                        <li class="list">
+                            <b></b>
+                            <b></b>
+                            <a href="../home/home.html">
+                                <span class="icon"><i class="fa-solid fa-chart-line"></i></span>
+                                <span class="title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <b></b>
+                            <b></b>
+                            <a href="../limites/limites.html">
+                                <span class="icon"><i class="fa-solid fa-chart-bar"></i></span>
+                                <span class="title">Limites</span>
+                            </a>
+                        </li>
+                        <li class="list active">
+                            <b></b>
+                            <b></b>
+                            <a href="../agendamentos/agendamentos.html">
+                                <span class="icon"><i class="fa-solid fa-calendar-check"></i></span>
+                                <span class="title">Agendamentos</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <b></b>
+                            <b></b>
+                            <a href="../alertas/alertas.html">
+                                <span class="icon"><i class="fa-solid fa-bell"></i></span>
+                                <span class="title">Alertas</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <b></b>
+                            <b></b>
+                            <a href="#">
+                                <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                                <span class="title">Log-out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                <section class="sections">
+                    <div class="calendar-content">
+                        <h1>ABRIL 2022</h1>
+                        <table class="calendar">
+                            <tr class="date">
+                                <th>DOM</th>
+                                <th>SEG</th>
+                                <th>TER</th>
+                                <th>QUA</th>
+                                <th>QUI</th>
+                                <th>SEX</th>
+                                <th>SÁB</th>
+                            </tr>
+                            <tr class="date">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="#">1</td></a>
+                                <td><a href="#">2</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">3</td></a>
+                                <td><a href="#">4</td></a>
+                                <td><a href="#">5</td></a>
+                                <td><a href="#">6</td></a>
+                                <td><a href="#">7</td></a>
+                                <td><a href="#">8</td></a>
+                                <td><a href="#">9</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">10</td></a>
+                                <td><a href="#"><i class="fa-solid fa-circle-exclamation" onclick="modal(1)"></i>11</td></a>
+                                <td><a href="#">12</td></a>
+                                <td><a href="#">13</td></a>
+                                <td><a href="#">14</td></a>
+                                <td><a href="#">15</td></a>
+                                <td><a href="#">16</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">17</td></a>
+                                <td><a href="#">18</td></a>
+                                <td><a href="#"><i class="fa-solid fa-circle-exclamation" onclick="modal(1)"></i>19</td></a>
+                                <td><a href="#">20</td></a>
+                                <td><a href="#">21</td></a>
+                                <td><a href="#"><i class="fa-solid fa-circle-exclamation" onclick="modal(1)"></i>22</td></a>
+                                <td><a href="#">23</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">24</td></a>
+                                <td><a href="#">25</td></a>
+                                <td><a href="#">26</td></a>
+                                <td><a href="#">27</td></a>
+                                <td><a href="#"><i class="fa-solid fa-circle-exclamation" onclick="modal(1)"></i>28</td></a>
+                                <td><a href="#">29</td></a>
+                                <td><a href="#">30</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#"></a>31</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+        </main>
+        <div id="myModal_1" class="modal">
+
+            <div class="modal-content">
+                <span id="close_1" class="close">&times;</span>
+                
+                <div id="agendamento_content">
+                    <img src="/Site-institucional/public/assets/images/logos-png/magna_logo_white.png" alt="">
+                    
+                </div>
+                <div class="agend-desc">
+                    <h1 class="agend_title">Agendamento #5433</h1>
+                    <div class="desc">
+                        <div class="agend-box">
+                            <span class="agend-motivo">Motivo:</span>
+                            <span class="agend-res">Avaliação</span>
+                        </div>
+                        <div class="agend-box">
+                            <span class="agend-motivo">Data agendada:</span>
+                            <span class="agend-res">19/04/2022</span>
+                        </div>
+                        <div class="agend-box">
+                            <span class="agend-motivo">Situação:</span>
+                            <span class="agend-res">Leve</span>
+                        </div>
+                        <div class="agend-box">
+                            <span class="agend-motivo">Descrição:</span>
+                            <span class="agend-res">Apenas uma avaliação geral do sistema, com a finalidade de checagem para ver se está tudo ok.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </body>
+    <script src="../global/global.js"></script>
+</html>

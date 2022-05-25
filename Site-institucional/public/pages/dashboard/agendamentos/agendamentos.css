@@ -1,0 +1,138 @@
+.scheduling-box{
+    height: 800px;
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.title-box{
+    border-bottom: 1px solid #02d8f0;
+    text-align: center;
+}
+.title-agend{
+    padding: 5px;
+}
+
+.agend-header{
+    display: flex;
+    align-items: center;
+}
+.calendar-content{
+    background: #08151E;
+    border: 1px solid #B3AFB2;
+    border-radius: 10px;
+    padding: 3vh 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.calendar-content h1{
+    margin: 10px;
+    color: #02d8f0;
+}
+.day-of-week, .date{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.day-of-week > * {
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: #B3AFB2;
+    margin-bottom: 2vh;
+    border: 1px solid #B3AFB2;
+}
+.date > * {
+    border: 1px solid #02d8f0;
+    padding: 2vh 1.5vw;
+    color: #B3AFB2;
+    width: 5vw;
+}
+.date > td > a{
+    display: flex;
+    justify-content: space-around;
+}
+.date > td > a > i{
+    color: rgb(222, 81, 81);
+    font-size: 19px;
+}
+.date > td > a{
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #3a3a3a;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #3a3a3a;
+    width: 50%;
+    height: fit-content;
+    border-radius: 15px;
+    animation: modal_in 700ms forwards;
+    user-select: none;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* ALTERAÇÕES */
+  
+  #box_content-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+  }
+
+  #agendamento_content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#agendamento_content img{
+    max-width: 200px;
+}
+.agend_title{
+    color: white;
+    margin: 10px 0;
+    text-decoration: underline;
+}
+.agend-box{
+    margin: 5px 0;
+}
+.agend-motivo{
+    color: white;
+    font-size: 20px;
+}
+.agend-res{
+    color: white;
+    font-weight: 300;
+}
