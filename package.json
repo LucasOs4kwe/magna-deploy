@@ -6,9 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./Site-institucional/server.js",
-    "postinstall": "cd Site-institucional && npm install",
-    "dev": "nodemon --exec node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "cd Site-institucional && npm install"
   },
   "author": "Feito pelos desenvolvedores @ Bandtec Digital School",
   "license": "MIT",
