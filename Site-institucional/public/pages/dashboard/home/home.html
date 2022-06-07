@@ -21,18 +21,12 @@
             <ul class="nav-list">
                 <div class="left-nav-items">
                     <a href="home.html">
-                        <li class="nav-item">DASHBOARD - MAGNA</li>
+                        <li class="nav-item">DASHBOARD - MAGNA / TOTEM <span id="totem_hostname"></span> </li>
                     </a>
                 </div>
                 <div class="right-nav-items">
                     <li class="nav-item">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </li>
-                    <li class="nav-item">
-                        <span>
-                            <i class="fa-solid fa-user"></i>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </span>
+                        <span id="name_user_nav_spn"></span>
                     </li>
                 </div>
             </ul>
@@ -75,15 +69,15 @@
                     <li class="list">
                         <b></b>
                         <b></b>
-                        <a href="../alertas/alertas.html">
-                            <span class="icon"><i class="fa-solid fa-bell"></i></span>
-                            <span class="title">Alertas</span>
+                        <a href="../totem-hub/totens.html">
+                            <span class="icon"><i class="fa-solid fa-circle-arrow-left"></i></span>
+                            <span class="title">Hub de totens</span>
                         </a>
                     </li>
                     <li class="list">
                         <b></b>
                         <b></b>
-                        <a href="/Site-institucional/public/index.html">
+                        <a href="/">
                             <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
                             <span class="title">Log-out</span>
                         </a>
@@ -94,79 +88,49 @@
 
 
         <div class="sections">
-            <section class="first-section" id="cpu_container">
-                <div class="section-header">
-                    <div class="left-content">
-                        <span class="first-title">
-                            Performance
-                        </span>
-                        <h1 class="title-section">
-                            CPU
-                            <i class="fa-solid fa-circle-info" onclick="modal(2)"></i>
-                            <span class="status-component">| Status: OK</span>
-                        </h1>
+            <section class="first-section">
+                <div class="first-section-box">
+                    <div class="section-header">
+                        <div class="left-content">
+                            <span class="first-title">
+                                Performance
+                            </span>
+                            <h1 class="title-section">
+                                <h1 id="component_name_title">CPU</h1>
+                                <i class="fa-solid fa-circle-info" id="modal_in_component"></i>
+                                <span class="status-component">| Status: OK</span>
+                            </h1>
+                        </div>
+                        <div class="right-content">
+                            <div class="buttons">
+                                <button class="btn-header" onclick="getData(1);" id="cpu_btn">CPU</button>
+                                <button class="btn-header" onclick="getData(2);" id="ram_btn">RAM</button>
+                                <button class="btn-header" onclick="getData(3);" id="disk_btn">Disco</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="right-content">
-                        <div class="buttons">
-                            <button class="btn-header active" onclick="page(1)">CPU</button>
-                            <button class="btn-header" onclick="page(2)" id="btn_RAM">RAM</button>
-                            <button class="btn-header" onclick="page(3)">Disco</button>
+                    <div class="chart" style="position: relative; height: 300px; width: 600px;">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="first-section-box component">
+                    <h1>Uso de cada componente </h1>
+                    <div class="component-usage">
+                        <div id="usage-cpu">
+                            <span id="usage-cpu-spn" class="circle-usage"></span>
+                            <span class="desc-component-spn">Uso de CPU: <span id="percent-usage-cpu"></span>%</span>
+                        </div>
+                        <div id="usage-ram">
+                            <span id="usage-ram-spn" class="circle-usage"></span>
+                            <span class="desc-component-spn">Uso de RAM: <span id="percent-usage-ram"></span> MB</span>
+                        </div>
+                        <div id="usage-disk">
+                            <span id="usage-disk-spn" class="circle-usage"></span>
+                            <span class="desc-component-spn">Uso de Disco: <span id="percent-usage-disk"></span>%</span>
                         </div>
                     </div>
                 </div>
-                <div class="chart">
-                    <canvas id="myChart" style="width: 100%; height: 100%"></canvas>
-                </div>
-            </section>
-
-            <section class="first-section" id="ram_container" style="display: none;">
-                <div class="section-header">
-                    <div class="left-content">
-                        <span class="first-title">
-                            Performance
-                        </span>
-                        <h1 class="title-section">
-                            Memória RAM
-                            <i class="fa-solid fa-circle-info" onclick="modal(3)"></i>
-                            <span class="status-component">| Status: OK</span>
-                        </h1>
-                    </div>
-                    <div class="right-content">
-                        <div class="buttons">
-                            <button class="btn-header" onclick="page(1)">CPU</button>
-                            <button class="btn-header active" onclick="page(2), getData(2)">RAM</button>
-                            <button class="btn-header" onclick="page(3)">Disco</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="chart">
-                    <canvas id="myChart2" style="width: 100%; height: 100%;"></canvas>
-                </div>
-            </section>
-
-            <section class="first-section" id="disk_container" style="display: none;">
-                <div class="section-header">
-                    <div class="left-content">
-                        <span class="first-title">
-                            Performance
-                        </span>
-                        <h1 class="title-section">
-                            Disco
-                            <i class="fa-solid fa-circle-info" onclick="modal(4)"></i>
-                            <span class="status-component">| Status: OK</span>
-                        </h1>
-                    </div>
-                    <div class="right-content">
-                        <div class="buttons">
-                            <button class="btn-header" onclick="page(1)">CPU</button>
-                            <button class="btn-header" onclick="page(2)">RAM</button>
-                            <button class="btn-header active" onclick="page(3)">Disco</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="chart">
-                    <canvas id="myChart3" style="width: 100%; height: 100%"></canvas>
-                </div>
+                
             </section>
 
             <section class="second-section">
@@ -174,7 +138,7 @@
                     <div class="card-box-header">
                         <i class="fa-solid fa-hard-drive"></i>
                         <div class="card-box-info">
-                            <span class="box-info-title">Disco livre</span>
+                            <span class="box-info-title">Disco total</span>
                             <span class="box-info-number" id="total_disco"></span>
                         </div>
                     </div>
@@ -188,8 +152,8 @@
                     <div class="card-box-header">
                         <i class="fa-solid fa-calendar"></i>
                         <div class="card-box-info">
-                            <span class="box-info-title">Dias sem manutenção</span>
-                            <span class="box-info-number">30</span>
+                            <span class="box-info-title">Data da última manutenção</span>
+                            <span class="box-info-number" id="last_manun">Sem registro</span>
                         </div>
                     </div>
                     <hr class="line">
@@ -202,46 +166,59 @@
                     <div class="card-box-header">
                         <i class="fa-solid fa-calendar-days"></i>
                         <div class="card-box-info">
-                            <span class="box-info-title">Dias até a manutenção</span>
-                            <span class="box-info-number">15</span>
+                            <span class="box-info-title">Data da próxima manutenção</span>
+                            <span class="box-info-number" id="nextManun_date">Sem registro</span>
                         </div>
                     </div>
                     <hr class="line">
                     <div class="update">
-                        <i class="fa-solid fa-calendar-pen"></i>
-                        <i class="fa-solid fa-arrow-rotate-right"></i>
-                        <span>Atualizar</span>
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span onclick="modal(6)">Histórico</span>
                     </div>
                 </div>
                 <div class="card-box-1">
                     <div class="card-box-header">
                         <i class="fa-solid fa-circle-exclamation"></i>
                         <div class="card-box-info">
-                            <span class="box-info-title">Número de erros</span>
-                            <span class="box-info-number">10</span>
+                            <span class="box-info-title">Número de alertas</span>
+                            <span class="box-info-number">0</span>
                         </div>
                     </div>
                     <hr class="line">
                     <div class="update">
-                        <i class="fa-solid fa-arrow-rotate-right"></i>
-                        <span>Atualizar</span>
+                        <i class="fa-solid fa-bell"></i>
+                        <span onclick="modal(5)">Alertas</span>
                     </div>
                 </div>
             </section>
 
             <section class="third-section">
                 <div class="card-box-2">
-                    <h1 class="card-title">Manutenções no mês</h1>
-                    <h2 class="card-subtitle">Contagem</h2>
-                    <div class="chart">
-                        <canvas id="myChart4" style="width: 100%; height: 100%"></canvas>
+                    <h1 class="card-title">Limites da máquina</h1>
+                    <h2 class="card-subtitle">Definidos para alerta</h2>
+                    <div class="limits">
+                        <div class="limit-box">
+                            <span class="limit-title-spn">Memória RAM: <span id="limite_ram_param"></span></span>
+                        </div>
+                        <div class="limit-box">
+                            <span class="limit-title-spn">CPU: <span id="limite_cpu_param"></span></span>
+                        </div>
+                        <div class="limit-box">
+                            <span class="limit-title-spn">Disco: <span id="limite_disco_param"></span></span>
+                        </div>
+                        <div class="limit-box">
+                            <span class="limit-title-spn">Processos: <span id="limite_proc_param"></span></span>
+                        </div>
                     </div>
                 </div>
                 <div class="card-box-2">
-                    <h1 class="card-title">Manutenções</h1>
-                    <h2 class="card-subtitle">Principais motivos</h2>
-                    <div class="chart" id="chartID">
-                        <canvas id="myChart5" style="width: 400; height: 400;"></canvas>
+                    <h1 class="card-title">Temperatura</h1>
+                    <h2 class="card-subtitle">Temperatura registrada (atual)</h2>
+                    <div class="graph_temp">
+                        <div>
+                            <i class="fa-solid fa-temperature-half"></i>
+                            <span id="temp_totem">0ºC</span>
+                        </div>
                     </div>
                 </div>
                 <div class="card-box-2">
@@ -250,9 +227,9 @@
                             <h1 class="card-title">Sistema do totem</h1>
                             <h2 class="card-subtitle">Especificações</h2>
                         </div>
-                        <i class="fa-brands fa-windows"></i>
+                        <i id="sistem_op_icon"></i>
                     </div>
-                    <div class="card-box-content">
+                    <div class="card-box-content specification">
                         <span class="specification-box">
                             <span class="name_specification">Sistema operacional: </span>
                             <span class="specification" id="sistema_op"></span>
@@ -272,10 +249,6 @@
                         <span class="specification-box">
                             <span class="name_specification">Endereço MAC: </span>
                             <span class="specification" id="mac_adress"></span>
-                        </span>
-                        <span class="specification-box">
-                            <span class="name_specification">Totem status: </span>
-                            <span class="specification" id="totem_status"></span>
                         </span>
                     </div>
                 </div>
@@ -326,11 +299,6 @@
                             </th>
                             <th class="table-header user">
                                 <div>
-                                    <span>Status</span>
-                                </div>
-                            </th>
-                            <th class="table-header user">
-                                <div>
                                     <span class="cpu_usage">25%</span>
                                     CPU
                                 </div>
@@ -349,18 +317,10 @@
                             </th>
                         </tr>
                         <tr class="table-row-desc">
-                            <td class="table-desc user">magnams@gmail.com</td>
-                            <td class="table-desc user">OK</td>
-                            <td class="table-desc user">10.6%</td>
-                            <td class="table-desc user">3.388.9 MB</td>
-                            <td class="table-desc user">0.1 MB/s</td>
-                        </tr>
-                        <tr class="table-row-desc">
-                            <td class="table-desc user">magnams2@gmail.com</td>
-                            <td class="table-desc user">OK</td>
-                            <td class="table-desc user">10.6%</td>
-                            <td class="table-desc user">3.388.9 MB</td>
-                            <td class="table-desc user">0.1 MB/s</td>
+                            <td class="table-desc user" id="username_table_td"></td>
+                            <td class="table-desc user" id="cpu_usage_user"></td>
+                            <td class="table-desc user" id="ram_usage_user"></td>
+                            <td class="table-desc user" id="disk_usage_user"></td>
                         </tr>
                     </table>
                 </div>
@@ -530,6 +490,52 @@
 
     </div>
 
+    <div id="myModal_5" class="modal">
+
+        <div class="modal-content">
+            <span id="close_5" class="close">&times;</span>
+
+            <div id="box_content-modal alerts">
+                <div class="content-modal-5">
+                    <div class="title-yourAlerts-box">
+                        <h1>Seus alertas</h1>
+                    </div>
+                </div>
+                <div id="plotted-alerts">
+                    <div class="alert">
+                        <div class="alert-header">
+                            <span class="title_alert">USO DE RAM EXCEDEU 500 MB!</span>
+                            <span>
+                                <span class="alert_time">24/05 - 19h32</span>
+                                <i class="fa-solid fa-circle-exclamation red"></i>
+                            </span>
+                        </div>
+                        <span class="alert_desc"><span id="name_user"></span>, seu uso de RAM excedeu o limite estabelecido por você nos limites!</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="myModal_6" class="modal">
+
+        <div class="modal-content">
+            <span id="close_6" class="close">&times;</span>
+
+            <div id="box_content-modal-alerts">
+                <div class="content-modal-5">
+                    <div class="title-yourAlerts-box">
+                        <h1>Suas manutenções</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
 
     <footer class="footer">
         <div class="footer-content">
@@ -554,6 +560,8 @@
 
 <script>
 
+    document.getElementById('name_user_nav_spn').innerHTML = sessionStorage.NOME_EMPRESA;
+    document.getElementById('username_table_td').innerHTML = sessionStorage.NOME_EMPRESA;
     var id = sessionStorage.ID_TOTEM;
 
     // window.onload = totem();
@@ -563,12 +571,13 @@
         var motivo = document.getElementById('motivo_agendamento_slct').value;
         var data_agendamento = document.getElementById('data_agendamento_inpt').value;
         var descricao = document.getElementById('descricao_text').value;
+        var status_concluido = 0;
         var fk_totem = id;
         
         if(motivo == '' || data_agendamento == '' || descricao == ''){
             window.alert('Preencha todos os campos para prosseguir!');
         }else{
-            fetch(`/dashboard/agendar`, {
+            fetch(`/users/dashboard/agendar`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -577,6 +586,7 @@
                 motivoServer: motivo,
                 data_agendamentoServer: data_agendamento,
                 descricaoServer: descricao,
+                status_concluidoServer: status_concluido,
                 fk_totemServer: fk_totem
             })
         }).then(function(response) {
@@ -584,6 +594,7 @@
                 document.getElementById('forms-agend').style.display = 'none';
                 document.getElementById('hide_agend').style.display = 'block';
                 motivo_agendamento_slct.value = '';
+                console.log(data_agendamento);
                 data_agendamento_inpt.value = '';
                 descricao_text.value = '';
 

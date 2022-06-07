@@ -18,18 +18,12 @@
                 <ul class="nav-list">
                     <div class="left-nav-items">
                         <a href="#">
-                            <li class="nav-item">DASHBOARD - MAGNA</li>
+                            <li class="nav-item">DASHBOARD - MAGNA / TOTEM <span id="totem_hostname"></span> </li>
                         </a>
                     </div>
                     <div class="right-nav-items">
                         <li class="nav-item">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </li>
-                        <li class="nav-item">
-                            <span>
-                                <i class="fa-solid fa-user"></i>
-                                <i class="fa-solid fa-caret-down"></i>
-                            </span>
+                            <span id="name_user_nav_spn"></span>
                         </li>
                     </div>
                 </ul>
@@ -71,15 +65,15 @@
                         <li class="list">
                             <b></b>
                             <b></b>
-                            <a href="../alertas/alertas.html">
-                                <span class="icon"><i class="fa-solid fa-bell"></i></span>
-                                <span class="title">Alertas</span>
+                            <a href="../totem-hub/totens.html">
+                                <span class="icon"><i class="fa-solid fa-circle-arrow-left"></i></span>
+                                <span class="title">Hub de totens</span>
                             </a>
                         </li>
                         <li class="list">
                             <b></b>
                             <b></b>
-                            <a href="#">
+                            <a href="/">
                                 <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
                                 <span class="title">Log-out</span>
                             </a>
@@ -88,8 +82,77 @@
                 </div>
             </div>
                 <section class="sections">
-                    <div class="calendar-content">
-                        <h1>ABRIL 2022</h1>
+                    <div class="calendar-content maio">
+                        <h1>Junho 2022</h1>
+                        <table class="calendar">
+                            <tr class="date">
+                                <th>DOM</th>
+                                <th>SEG</th>
+                                <th>TER</th>
+                                <th>QUA</th>
+                                <th>QUI</th>
+                                <th>SEX</th>
+                                <th>SÁB</th>
+                            </tr>
+                            <tr class="date">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="#" id="2022-06-01">1</a></td>
+                                <td><a href="#" id="2022-06-02">2</a></td>
+                                <td><a href="#" id="2022-06-03">3</td></a>
+                                <td><a href="#" id="2022-06-04">4</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#" id="2022-06-05">5</td></a>
+                                <td><a href="#" id="2022-06-06">6</td></a>
+                                <td><a href="#" id="2022-06-07">7</td></a>
+                                <td><a href="#" id="2022-06-08">8</td></a>
+                                <td><a href="#" id="2022-06-09">9</td></a>
+                                <td><a href="#" id="2022-06-10">10</td></a>
+                                <td><a href="#" id="2022-06-11">11</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#" id="2022-06-12">12</td></a>
+                                <td><a href="#" id="2022-06-13">13</td></a>
+                                <td><a href="#" id="2022-06-14">14</td></a>
+                                <td><a href="#" id="2022-06-15">15</td></a>
+                                <td><a href="#" id="2022-06-16">16</td></a>
+                                <td><a href="#" id="2022-06-17">17</td></a>
+                                <td><a href="#" id="2022-06-18">18</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#" id="2022-06-19">19</td></a>
+                                <td><a href="#" id="2022-06-20">20</td></a>
+                                <td><a href="#" id="2022-06-21">21</td></a>
+                                <td><a href="#" id="2022-06-22">22</td></a>
+                                <td><a href="#" id="2022-06-23">23</td></a>
+                                <td><a href="#" id="2022-06-24">24</td></a>
+                                <td><a href="#" id="2022-06-25">25</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#" id="2022-06-26">26</td></a>
+                                <td><a href="#" id="2022-06-27">27</td></a>
+                                <td><a href="#" id="2022-06-28">28</td></a>
+                                <td><a href="#" id="2022-06-29">29</td></a>
+                                <td><a href="#" id="2022-06-30">30</td></a>
+                                <td><a href="#"></td></a>
+                                <td><a href="#"></td></a>
+                            </tr>
+                            <tr class="date">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="calendar-content junho" style="display: none;">
+                        <h1>Junho 2022</h1>
                         <table class="calendar">
                             <tr class="date">
                                 <th>DOM</th>
@@ -120,7 +183,7 @@
                             </tr>
                             <tr class="date">
                                 <td><a href="#">10</td></a>
-                                <td><a href="#"><i class="fa-solid fa-circle-exclamation" onclick="modal(1)"></i>11</td></a>
+                                <td><a href="#">11</td></a>
                                 <td><a href="#">12</td></a>
                                 <td><a href="#">13</td></a>
                                 <td><a href="#">14</td></a>
@@ -130,10 +193,10 @@
                             <tr class="date">
                                 <td><a href="#">17</td></a>
                                 <td><a href="#">18</td></a>
-                                <td><a href="#"><i class="fa-solid fa-circle-exclamation" onclick="modal(1)"></i>19</td></a>
+                                <td><a href="#">19</td></a>
                                 <td><a href="#">20</td></a>
                                 <td><a href="#">21</td></a>
-                                <td><a href="#"><i class="fa-solid fa-circle-exclamation" onclick="modal(1)"></i>22</td></a>
+                                <td><a href="#">22</td></a>
                                 <td><a href="#">23</td></a>
                             </tr>
                             <tr class="date">
@@ -141,7 +204,421 @@
                                 <td><a href="#">25</td></a>
                                 <td><a href="#">26</td></a>
                                 <td><a href="#">27</td></a>
-                                <td><a href="#"><i class="fa-solid fa-circle-exclamation" onclick="modal(1)"></i>28</td></a>
+                                <td><a href="#">28</td></a>
+                                <td><a href="#">29</td></a>
+                                <td><a href="#">30</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#"></a>31</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="calendar-content julho" style="display: none;">
+                        <h1>Julho 2022</h1>
+                        <table class="calendar">
+                            <tr class="date">
+                                <th>DOM</th>
+                                <th>SEG</th>
+                                <th>TER</th>
+                                <th>QUA</th>
+                                <th>QUI</th>
+                                <th>SEX</th>
+                                <th>SÁB</th>
+                            </tr>
+                            <tr class="date">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="#">1</td></a>
+                                <td><a href="#">2</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">3</td></a>
+                                <td><a href="#">4</td></a>
+                                <td><a href="#">5</td></a>
+                                <td><a href="#">6</td></a>
+                                <td><a href="#">7</td></a>
+                                <td><a href="#">8</td></a>
+                                <td><a href="#">9</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">10</td></a>
+                                <td><a href="#">11</td></a>
+                                <td><a href="#">12</td></a>
+                                <td><a href="#">13</td></a>
+                                <td><a href="#">14</td></a>
+                                <td><a href="#">15</td></a>
+                                <td><a href="#">16</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">17</td></a>
+                                <td><a href="#">18</td></a>
+                                <td><a href="#">19</td></a>
+                                <td><a href="#">20</td></a>
+                                <td><a href="#">21</td></a>
+                                <td><a href="#">22</td></a>
+                                <td><a href="#">23</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">24</td></a>
+                                <td><a href="#">25</td></a>
+                                <td><a href="#">26</td></a>
+                                <td><a href="#">27</td></a>
+                                <td><a href="#">28</td></a>
+                                <td><a href="#">29</td></a>
+                                <td><a href="#">30</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#"></a>31</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="calendar-content agosto" style="display: none;">
+                        <h1>Agosto 2022</h1>
+                        <table class="calendar">
+                            <tr class="date">
+                                <th>DOM</th>
+                                <th>SEG</th>
+                                <th>TER</th>
+                                <th>QUA</th>
+                                <th>QUI</th>
+                                <th>SEX</th>
+                                <th>SÁB</th>
+                            </tr>
+                            <tr class="date">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="#">1</td></a>
+                                <td><a href="#">2</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">3</td></a>
+                                <td><a href="#">4</td></a>
+                                <td><a href="#">5</td></a>
+                                <td><a href="#">6</td></a>
+                                <td><a href="#">7</td></a>
+                                <td><a href="#">8</td></a>
+                                <td><a href="#">9</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">10</td></a>
+                                <td><a href="#">11</td></a>
+                                <td><a href="#">12</td></a>
+                                <td><a href="#">13</td></a>
+                                <td><a href="#">14</td></a>
+                                <td><a href="#">15</td></a>
+                                <td><a href="#">16</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">17</td></a>
+                                <td><a href="#">18</td></a>
+                                <td><a href="#">19</td></a>
+                                <td><a href="#">20</td></a>
+                                <td><a href="#">21</td></a>
+                                <td><a href="#">22</td></a>
+                                <td><a href="#">23</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">24</td></a>
+                                <td><a href="#">25</td></a>
+                                <td><a href="#">26</td></a>
+                                <td><a href="#">27</td></a>
+                                <td><a href="#">28</td></a>
+                                <td><a href="#">29</td></a>
+                                <td><a href="#">30</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#"></a>31</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="calendar-content setembro" style="display: none;">
+                        <h1>Setembro 2022</h1>
+                        <table class="calendar">
+                            <tr class="date">
+                                <th>DOM</th>
+                                <th>SEG</th>
+                                <th>TER</th>
+                                <th>QUA</th>
+                                <th>QUI</th>
+                                <th>SEX</th>
+                                <th>SÁB</th>
+                            </tr>
+                            <tr class="date">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="#">1</td></a>
+                                <td><a href="#">2</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">3</td></a>
+                                <td><a href="#">4</td></a>
+                                <td><a href="#">5</td></a>
+                                <td><a href="#">6</td></a>
+                                <td><a href="#">7</td></a>
+                                <td><a href="#">8</td></a>
+                                <td><a href="#">9</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">10</td></a>
+                                <td><a href="#">11</td></a>
+                                <td><a href="#">12</td></a>
+                                <td><a href="#">13</td></a>
+                                <td><a href="#">14</td></a>
+                                <td><a href="#">15</td></a>
+                                <td><a href="#">16</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">17</td></a>
+                                <td><a href="#">18</td></a>
+                                <td><a href="#">19</td></a>
+                                <td><a href="#">20</td></a>
+                                <td><a href="#">21</td></a>
+                                <td><a href="#">22</td></a>
+                                <td><a href="#">23</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">24</td></a>
+                                <td><a href="#">25</td></a>
+                                <td><a href="#">26</td></a>
+                                <td><a href="#">27</td></a>
+                                <td><a href="#">28</td></a>
+                                <td><a href="#">29</td></a>
+                                <td><a href="#">30</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#"></a>31</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="calendar-content outubro" style="display: none;">
+                        <h1>Outubro 2022</h1>
+                        <table class="calendar">
+                            <tr class="date">
+                                <th>DOM</th>
+                                <th>SEG</th>
+                                <th>TER</th>
+                                <th>QUA</th>
+                                <th>QUI</th>
+                                <th>SEX</th>
+                                <th>SÁB</th>
+                            </tr>
+                            <tr class="date">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="#">1</td></a>
+                                <td><a href="#">2</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">3</td></a>
+                                <td><a href="#">4</td></a>
+                                <td><a href="#">5</td></a>
+                                <td><a href="#">6</td></a>
+                                <td><a href="#">7</td></a>
+                                <td><a href="#">8</td></a>
+                                <td><a href="#">9</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">10</td></a>
+                                <td><a href="#">11</td></a>
+                                <td><a href="#">12</td></a>
+                                <td><a href="#">13</td></a>
+                                <td><a href="#">14</td></a>
+                                <td><a href="#">15</td></a>
+                                <td><a href="#">16</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">17</td></a>
+                                <td><a href="#">18</td></a>
+                                <td><a href="#">19</td></a>
+                                <td><a href="#">20</td></a>
+                                <td><a href="#">21</td></a>
+                                <td><a href="#">22</td></a>
+                                <td><a href="#">23</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">24</td></a>
+                                <td><a href="#">25</td></a>
+                                <td><a href="#">26</td></a>
+                                <td><a href="#">27</td></a>
+                                <td><a href="#">28</td></a>
+                                <td><a href="#">29</td></a>
+                                <td><a href="#">30</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#"></a>31</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="calendar-content novembro" style="display: none;">
+                        <h1>Novembro 2022</h1>
+                        <table class="calendar">
+                            <tr class="date">
+                                <th>DOM</th>
+                                <th>SEG</th>
+                                <th>TER</th>
+                                <th>QUA</th>
+                                <th>QUI</th>
+                                <th>SEX</th>
+                                <th>SÁB</th>
+                            </tr>
+                            <tr class="date">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="#">1</td></a>
+                                <td><a href="#">2</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">3</td></a>
+                                <td><a href="#">4</td></a>
+                                <td><a href="#">5</td></a>
+                                <td><a href="#">6</td></a>
+                                <td><a href="#">7</td></a>
+                                <td><a href="#">8</td></a>
+                                <td><a href="#">9</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">10</td></a>
+                                <td><a href="#">11</td></a>
+                                <td><a href="#">12</td></a>
+                                <td><a href="#">13</td></a>
+                                <td><a href="#">14</td></a>
+                                <td><a href="#">15</td></a>
+                                <td><a href="#">16</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">17</td></a>
+                                <td><a href="#">18</td></a>
+                                <td><a href="#">19</td></a>
+                                <td><a href="#">20</td></a>
+                                <td><a href="#">21</td></a>
+                                <td><a href="#">22</td></a>
+                                <td><a href="#">23</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">24</td></a>
+                                <td><a href="#">25</td></a>
+                                <td><a href="#">26</td></a>
+                                <td><a href="#">27</td></a>
+                                <td><a href="#">28</td></a>
+                                <td><a href="#">29</td></a>
+                                <td><a href="#">30</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#"></a>31</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="calendar-content dezembro" style="display: none;">
+                        <h1>Dezembro 2022</h1>
+                        <table class="calendar">
+                            <tr class="date">
+                                <th>DOM</th>
+                                <th>SEG</th>
+                                <th>TER</th>
+                                <th>QUA</th>
+                                <th>QUI</th>
+                                <th>SEX</th>
+                                <th>SÁB</th>
+                            </tr>
+                            <tr class="date">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="#">1</td></a>
+                                <td><a href="#">2</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">3</td></a>
+                                <td><a href="#">4</td></a>
+                                <td><a href="#">5</td></a>
+                                <td><a href="#">6</td></a>
+                                <td><a href="#">7</td></a>
+                                <td><a href="#">8</td></a>
+                                <td><a href="#">9</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">10</td></a>
+                                <td><a href="#">11</td></a>
+                                <td><a href="#">12</td></a>
+                                <td><a href="#">13</td></a>
+                                <td><a href="#">14</td></a>
+                                <td><a href="#">15</td></a>
+                                <td><a href="#">16</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">17</td></a>
+                                <td><a href="#">18</td></a>
+                                <td><a href="#">19</td></a>
+                                <td><a href="#">20</td></a>
+                                <td><a href="#">21</td></a>
+                                <td><a href="#">22</td></a>
+                                <td><a href="#">23</td></a>
+                            </tr>
+                            <tr class="date">
+                                <td><a href="#">24</td></a>
+                                <td><a href="#">25</td></a>
+                                <td><a href="#">26</td></a>
+                                <td><a href="#">27</td></a>
+                                <td><a href="#">28</td></a>
                                 <td><a href="#">29</td></a>
                                 <td><a href="#">30</td></a>
                             </tr>
@@ -168,29 +645,27 @@
                     
                 </div>
                 <div class="agend-desc">
-                    <h1 class="agend_title">Agendamento #5433</h1>
+                    <h1 class="agend_title">Agendamento #<span id="id_agend_spn"></span></h1>
                     <div class="desc">
                         <div class="agend-box">
                             <span class="agend-motivo">Motivo:</span>
-                            <span class="agend-res">Avaliação</span>
+                            <span class="agend-res" id="motivo_manun"></span>
                         </div>
                         <div class="agend-box">
                             <span class="agend-motivo">Data agendada:</span>
-                            <span class="agend-res">19/04/2022</span>
-                        </div>
-                        <div class="agend-box">
-                            <span class="agend-motivo">Situação:</span>
-                            <span class="agend-res">Leve</span>
+                            <span class="agend-res" id="data_agend_spn"></span>
                         </div>
                         <div class="agend-box">
                             <span class="agend-motivo">Descrição:</span>
-                            <span class="agend-res">Apenas uma avaliação geral do sistema, com a finalidade de checagem para ver se está tudo ok.</span>
+                            <span class="agend-res" id="desc_agend_spn"></span>
                         </div>
                     </div>
+                    <div id="div_button"></div>
                 </div>
             </div>
     
         </div>
     </body>
     <script src="../global/global.js"></script>
+    <script src="js/app.js"></script>
 </html>
