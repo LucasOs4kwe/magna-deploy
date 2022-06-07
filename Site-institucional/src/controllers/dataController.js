@@ -256,6 +256,29 @@ function getDataRealTime(req, res) {
         })
 }
 
+function alertLog(req, res) {
+    var id_totem = req.params.id;
+
+    dataModel.alertLog(id_totem)
+        .then(function (result) {
+            res.status(200).json(result);
+        }).catch(function (err) {
+            res.status(500).json(err.sqlMessage);
+        })
+}
+
+function updateAlert(req, res) {
+    var id_totem = req.body.id_totemServer;
+    var id = req.body.idAlertServer;
+
+    dataModel.updateAlert(id, id_totem)
+        .then(function (result) {
+            res.status(200).json(result);
+        }).catch(function (err) {
+            res.status(500).json(err.sqlMessage);
+        })
+
+}
 
 module.exports = {
     getDataCPU,
@@ -275,5 +298,7 @@ module.exports = {
     getAllAgends,
     updateAgend,
     lastAgend,
-    getDataRealTime
+    getDataRealTime,
+    alertLog,
+    updateAlert
 }

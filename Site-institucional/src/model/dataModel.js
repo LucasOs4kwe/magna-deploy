@@ -135,6 +135,20 @@ function lastAgend(id_totem){
     `);
 }
 
+function alertLog(id_totem){
+    return bd.execQuery(`
+    SELECT id, CONVERT(VARCHAR, dh_alerta, 120) AS dh_alerta, titulo, descricao, checked FROM log_alerta WHERE checked = 0 AND fk_totem = ${id_totem} ORDER BY dh_alerta DESC
+    `);
+}
+
+function updateAlert(id, id_totem){
+    return bd.execQuery(`
+        UPDATE log_alerta
+        SET checked = 1 
+        WHERE fk_totem = ${id_totem} AND id = ${id}
+    `)
+}
+
 module.exports = {
     getDataCPU,
     getDataRAM,
@@ -154,5 +168,7 @@ module.exports = {
     getAllAgends,
     updateAgend,
     lastAgend,
-    getDataRealTime
+    getDataRealTime,
+    alertLog,
+    updateAlert
 }

@@ -1,7 +1,7 @@
 let nextUp;
 var id_totem = sessionStorage.ID_TOTEM;
 
-window.onload = getData(1), getProcess(), getNextAgend(), totem(), getAgendCheck(), lastAgend();
+window.onload = getData(1), getProcess(), getNextAgend(), totem(), getAgendCheck(), lastAgend(), getAlerts();
 
 function getData(data_type) {
 
@@ -11,8 +11,8 @@ function getData(data_type) {
     }
 
     fetch(`/dados/${data_type}/${id_totem}`, {
-            cache: 'no-store'
-        })
+        cache: 'no-store'
+    })
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (res) {
@@ -152,6 +152,7 @@ function plotGraph(res, data_type) {
                 response.json().then(function (newRegister) {
 
 
+                    document.getElementById('usage-cpu-modal').innerHTML = `${newRegister[0].uso_cpu}`;
                     document.getElementById('cpu_usage_user').innerHTML = `${newRegister[0].uso_cpu}`;
                     document.getElementById('ram_usage_user').innerHTML = `${newRegister[0].uso_ram}`;
                     document.getElementById('disk_usage_user').innerHTML = `${newRegister[0].uso_disco}`;
@@ -160,33 +161,42 @@ function plotGraph(res, data_type) {
                     var newRam = document.getElementById('percent-usage-ram').innerHTML = `${newRegister[0].uso_ram}`;
                     var newDisk = document.getElementById('percent-usage-disk').innerHTML = `${newRegister[0].uso_disco}`;
 
-                    if(newCpu > cpu){
+                    if (newCpu > cpu) {
                         document.getElementById('usage-cpu-spn').style.backgroundColor = 'tomato';
+                        document.getElementById('info-alerts-spn').innerHTML = `${+1}`;
+                        // plotAlert();
                     }
-                    if(newCpu < cpu){
+                    if (newCpu < cpu) {
                         document.getElementById('usage-cpu-spn').style.backgroundColor = '#a0d11b';
+                        document.getElementById('info-alerts-spn').innerHTML = `${-1}`;
                     }
-                    if(newRam > ram){
+                    if (newRam > ram) {
                         document.getElementById('usage-ram-spn').style.backgroundColor = 'tomato';
+                        document.getElementById('info-alerts-spn').innerHTML = `${+1}`;
+                        // plotAlert();
                     }
-                    if(newRam < ram){
+                    if (newRam < ram) {
                         document.getElementById('usage-ram-spn').style.backgroundColor = '#a0d11b';
+                        document.getElementById('info-alerts-spn').innerHTML = `${-1}`;
                     }
-                    if(newDisk > disk){
+                    if (newDisk > disk) {
                         document.getElementById('usage-disk-spn').style.backgroundColor = 'tomato';
+                        document.getElementById('info-alerts-spn').innerHTML = `${+1}`;
+                        // plotAlert();
                     }
-                    if(newDisk < disk){
+                    if (newDisk < disk) {
                         document.getElementById('usage-disk-spn').style.backgroundColor = '#a0d11b';
+                        document.getElementById('info-alerts-spn').innerHTML = `${-1}`;
                     }
 
                     dados.labels.shift();
                     dados.labels.push(newRegister[0].dh_registro);
                     dados.datasets[0].data.shift();
-                    if(data_type == 1){
+                    if (data_type == 1) {
                         dados.datasets[0].data.push(newRegister[0].uso_cpu);
-                    }else if(data_type == 2){
+                    } else if (data_type == 2) {
                         dados.datasets[0].data.push(newRegister[0].uso_ram);
-                    }else if(data_type == 3){
+                    } else if (data_type == 3) {
                         dados.datasets[0].data.push(newRegister[0].uso_disco);
                     }
 
@@ -236,6 +246,73 @@ function plotGraph(res, data_type) {
             }
         }
     });
+}
+
+
+// function plotAlert() {
+
+// }
+
+function getAlerts() {
+
+    fetch(`/dados/alertas/log/${id_totem}`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (response) {
+        if (response.ok) {
+            response.json().then(json => {
+                for (var i = 0; i < json.length; i++) {
+                    var contentModal = document.getElementById('box_content-modal-log-alerts');
+                    var divPlottAgend = document.createElement('div');
+                    var div2 = document.createElement('div');
+                    var divHeader = document.createElement('div');
+                    var motivoAgen = document.createElement('span');
+                    var spanIcon = document.createElement('span');
+                    var spanDate = document.createElement('span');
+                    var icon = document.createElement('i');
+                    var spanDesc = document.createElement('span');
+                    var button = document.createElement('button');
+
+                    // CLASSES E IDs
+                    div2.className = 'alert';
+                    divHeader.className = 'alert-header';
+                    motivoAgen.className = 'title_alert';
+                    motivoAgen.innerHTML = `${(json[i].titulo)}`;
+                    // spanIcon
+                    spanDate.innerHTML = `${(json[i].dh_alerta)}`;
+                    icon.className = 'fa-solid fa-circle-exclamation red';
+                    icon.style.color = 'tomato';
+                    spanDesc.innerHTML = `${(json[i].descricao)}`;
+                    button.id = `btn_${id}`
+                    button.className = 'btn_alerts';
+                    button.innerHTML = "Ok";
+
+                    // APPENDCHIELDS
+                    contentModal.appendChild(divPlottAgend);
+                    divPlottAgend.appendChild(div2);
+                    div2.appendChild(divHeader);
+                    div2.appendChild(spanDesc);
+                    divHeader.appendChild(motivoAgen);
+                    divHeader.appendChild(spanIcon);
+                    spanIcon.appendChild(spanDate);
+                    spanIcon.appendChild(icon);
+                    spanIcon.appendChild(button);
+
+                    button.addEventListener("click", () => {
+                        updateAlert(id);
+                    })
+                }
+            })
+        } else {
+            console.log("ERRO NA RESPONSE");
+        }
+    }).catch(function (err) {
+        console.log(err);
+    })
+
+    return false;
 }
 
 
@@ -329,7 +406,6 @@ function refreshGraph(id_totem, dados) {
 
 }
 
-
 function getAgendCheck() {
     fetch(`/dados/agendamentos/check/${id_totem}`, {
         method: 'GET',
@@ -384,6 +460,34 @@ function getAgendCheck() {
 
     return false;
 }
+
+
+function updateAlert(id) {
+    var idAlert = id;
+
+    fetch(`/alertas/log/update`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idAlertServer: idAlert,
+            id_totemServer: id_totem
+        })
+    }).then(function (response) {
+        if (response.ok) {
+            document.getElementById(`btn_${id}`).disabled = true;
+            window.alert("Alerta vizualizado!");
+        } else {
+            console.log("Houve um erro ao tentar fazer o update!")
+        }
+    }).catch(function (err) {
+        console.log(err);
+    })
+
+    return false;
+}
+
 
 
 function getProcess() {

@@ -715,3 +715,12 @@ body::-webkit-scrollbar-thumb{
     font-size: 25px;
     color: white;
 }
+
+.btn_alerts{
+    padding: 3px 5px;
+    border-radius: 10px;
+    background-color: #02d8f0;
+    margin-left: 2px;
+    border: none;
+    cursor: pointer;
+}

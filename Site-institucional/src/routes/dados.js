@@ -84,4 +84,13 @@ router.get("/agendamentos/lastAgend/:id", function(req, res){
     dataController.lastAgend(req, res);
 })
 
+// LOG DE ALERTA
+router.get("/alertas/log/:id", function(req, res){
+    dataController.alertLog(req, res);
+})
+
+router.post("/alertas/log/update", function(req, res){
+    dataController.updateAlert(req, res);
+})
+
 module.exports = router;
