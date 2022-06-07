@@ -11,8 +11,8 @@ function getData(data_type) {
     }
 
     fetch(`/dados/${data_type}/${id_totem}`, {
-        cache: 'no-store'
-    })
+            cache: 'no-store'
+        })
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (res) {
@@ -166,7 +166,38 @@ function plotGraph(res, data_type) {
                     if (newCpu > cpu) {
                         document.getElementById('usage-cpu-spn').style.backgroundColor = 'tomato';
                         document.getElementById('info-alerts-spn').innerHTML = `${+1}`;
-                        // plotAlert();
+                        var contentModal = document.getElementById('box_content-modal-log-alerts');
+                        var divPlottAgend = document.createElement('div');
+                        var div2 = document.createElement('div');
+                        var divHeader = document.createElement('div');
+                        var motivoAgen = document.createElement('span');
+                        var spanIcon = document.createElement('span');
+                        var spanDate = document.createElement('span');
+                        var icon = document.createElement('i');
+                        var spanDesc = document.createElement('span');
+
+                        // CLASSES E IDs
+                        div2.className = 'alert';
+                        divHeader.className = 'alert-header';
+                        motivoAgen.className = 'title_alert';
+                        motivoAgen.innerHTML = `Uso de CPU acima do limite de ${cpu}%`;
+                        // spanIcon
+                        spanDate.innerHTML = `${(newRegister[0].dh_registro)}`;
+                        icon.className = 'fa-solid fa-circle-exclamation red';
+                        icon.style.color = 'tomato';
+                        spanDesc.innerHTML = `O uso de CPU registrado foi maior que o limite estabelecido. Cuidado!`;
+                        
+
+                        // APPENDCHIELDS
+                        contentModal.appendChild(divPlottAgend);
+                        divPlottAgend.appendChild(div2);
+                        div2.appendChild(divHeader);
+                        div2.appendChild(spanDesc);
+                        divHeader.appendChild(motivoAgen);
+                        divHeader.appendChild(spanIcon);
+                        spanIcon.appendChild(spanDate);
+                        spanIcon.appendChild(icon);
+                        
                     }
                     if (newCpu < cpu) {
                         document.getElementById('usage-cpu-spn').style.backgroundColor = '#a0d11b';
@@ -174,7 +205,37 @@ function plotGraph(res, data_type) {
                     if (newRam > ram) {
                         document.getElementById('usage-ram-spn').style.backgroundColor = 'tomato';
                         document.getElementById('info-alerts-spn').innerHTML = `${+1}`;
-                        // plotAlert();
+                        var contentModal = document.getElementById('box_content-modal-log-alerts');
+                        var divPlottAgend = document.createElement('div');
+                        var div2 = document.createElement('div');
+                        var divHeader = document.createElement('div');
+                        var motivoAgen = document.createElement('span');
+                        var spanIcon = document.createElement('span');
+                        var spanDate = document.createElement('span');
+                        var icon = document.createElement('i');
+                        var spanDesc = document.createElement('span');
+
+                        // CLASSES E IDs
+                        div2.className = 'alert';
+                        divHeader.className = 'alert-header';
+                        motivoAgen.className = 'title_alert';
+                        motivoAgen.innerHTML = `Uso de RAM acima do limite de ${ram}mb`;
+                        // spanIcon
+                        spanDate.innerHTML = `${(newRegister[0].dh_registro)}`;
+                        icon.className = 'fa-solid fa-circle-exclamation red';
+                        icon.style.color = 'tomato';
+                        spanDesc.innerHTML = `O uso de RAM registrado foi maior que o limite estabelecido. Cuidado!`;
+                        
+
+                        // APPENDCHIELDS
+                        contentModal.appendChild(divPlottAgend);
+                        divPlottAgend.appendChild(div2);
+                        div2.appendChild(divHeader);
+                        div2.appendChild(spanDesc);
+                        divHeader.appendChild(motivoAgen);
+                        divHeader.appendChild(spanIcon);
+                        spanIcon.appendChild(spanDate);
+                        spanIcon.appendChild(icon);
                     }
                     if (newRam < ram) {
                         document.getElementById('usage-ram-spn').style.backgroundColor = '#a0d11b';
@@ -182,7 +243,37 @@ function plotGraph(res, data_type) {
                     if (newDisk > disk) {
                         document.getElementById('usage-disk-spn').style.backgroundColor = 'tomato';
                         document.getElementById('info-alerts-spn').innerHTML = `${+1}`;
-                        // plotAlert();
+                        var contentModal = document.getElementById('box_content-modal-log-alerts');
+                        var divPlottAgend = document.createElement('div');
+                        var div2 = document.createElement('div');
+                        var divHeader = document.createElement('div');
+                        var motivoAgen = document.createElement('span');
+                        var spanIcon = document.createElement('span');
+                        var spanDate = document.createElement('span');
+                        var icon = document.createElement('i');
+                        var spanDesc = document.createElement('span');
+
+                        // CLASSES E IDs
+                        div2.className = 'alert';
+                        divHeader.className = 'alert-header';
+                        motivoAgen.className = 'title_alert';
+                        motivoAgen.innerHTML = `Uso de disco acima do limite de ${disk}gb`;
+                        // spanIcon
+                        spanDate.innerHTML = `${(newRegister[0].dh_registro)}`;
+                        icon.className = 'fa-solid fa-circle-exclamation red';
+                        icon.style.color = 'tomato';
+                        spanDesc.innerHTML = `O uso de disco registrado foi maior que o limite estabelecido. Cuidado!`;
+                        
+
+                        // APPENDCHIELDS
+                        contentModal.appendChild(divPlottAgend);
+                        divPlottAgend.appendChild(div2);
+                        div2.appendChild(divHeader);
+                        div2.appendChild(spanDesc);
+                        divHeader.appendChild(motivoAgen);
+                        divHeader.appendChild(spanIcon);
+                        spanIcon.appendChild(spanDate);
+                        spanIcon.appendChild(icon);
                     }
                     if (newDisk < disk) {
                         document.getElementById('usage-disk-spn').style.backgroundColor = '#a0d11b';
