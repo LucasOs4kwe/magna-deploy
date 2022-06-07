@@ -26,7 +26,7 @@ function getDataDisk(id_totem) {
 
 function getDataRealTime(id_totem){
     return bd.execQuery(`
-        SELECT TOP 1 uso_cpu, uso_ram, uso_disco, CONVERT(VARCHAR, dh_registro, 120) AS dh_registro FROM registro WHERE fk_totem = ${id_totem}
+        SELECT TOP 1 uso_cpu, uso_ram, uso_disco, CONVERT(VARCHAR, dh_registro, 120) AS dh_registro, temperatura_cpu FROM registro WHERE fk_totem = ${id_totem}
         ORDER BY id DESC;
     `)
 }

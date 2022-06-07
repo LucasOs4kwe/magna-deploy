@@ -133,7 +133,7 @@ function plotGraph(res, data_type) {
 
                     document.getElementById('limite_ram_param').innerHTML = `${(json[i].uso_ram).toFixed(1)}MB`;
                     document.getElementById('limite_cpu_param').innerHTML = `${(json[i].uso_cpu).toFixed(2)}%`;
-                    document.getElementById('limite_disco_param').innerHTML = `${(json[i].uso_disco).toFixed(2)}%`;
+                    document.getElementById('limite_disco_param').innerHTML = `${(json[i].uso_disco).toFixed(2)}GB`;
                     document.getElementById('limite_proc_param').innerHTML = `${(json[i].qtd_proc)}(MAX)`;
                 }
             })
@@ -155,7 +155,9 @@ function plotGraph(res, data_type) {
                     document.getElementById('usage-cpu-modal').innerHTML = `${newRegister[0].uso_cpu}`;
                     document.getElementById('cpu_usage_user').innerHTML = `${newRegister[0].uso_cpu}`;
                     document.getElementById('ram_usage_user').innerHTML = `${newRegister[0].uso_ram}`;
+                    document.getElementById('modal_ram_usage').innerHTML = `${newRegister[0].uso_ram}`;
                     document.getElementById('disk_usage_user').innerHTML = `${newRegister[0].uso_disco}`;
+                    document.getElementById('temp_totem').innerHTML = `${newRegister[0].temperatura_cpu}°C`;
 
                     var newCpu = document.getElementById('percent-usage-cpu').innerHTML = `${newRegister[0].uso_cpu}`;
                     var newRam = document.getElementById('percent-usage-ram').innerHTML = `${newRegister[0].uso_ram}`;
@@ -168,7 +170,6 @@ function plotGraph(res, data_type) {
                     }
                     if (newCpu < cpu) {
                         document.getElementById('usage-cpu-spn').style.backgroundColor = '#a0d11b';
-                        document.getElementById('info-alerts-spn').innerHTML = `${-1}`;
                     }
                     if (newRam > ram) {
                         document.getElementById('usage-ram-spn').style.backgroundColor = 'tomato';
@@ -177,7 +178,6 @@ function plotGraph(res, data_type) {
                     }
                     if (newRam < ram) {
                         document.getElementById('usage-ram-spn').style.backgroundColor = '#a0d11b';
-                        document.getElementById('info-alerts-spn').innerHTML = `${-1}`;
                     }
                     if (newDisk > disk) {
                         document.getElementById('usage-disk-spn').style.backgroundColor = 'tomato';
@@ -186,7 +186,6 @@ function plotGraph(res, data_type) {
                     }
                     if (newDisk < disk) {
                         document.getElementById('usage-disk-spn').style.backgroundColor = '#a0d11b';
-                        document.getElementById('info-alerts-spn').innerHTML = `${-1}`;
                     }
 
                     dados.labels.shift();
